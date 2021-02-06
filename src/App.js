@@ -34,6 +34,9 @@ class App extends React.Component {
                     <Route exact path='/'   /* exact - если путь совпадает точь в точь */
                         render={() => <Redirect to='/Profile'/>} >
                     </Route>
+                    <Route exact path='/social-network' 
+                        render={() => <Redirect to='/Profile'/>} >
+                    </Route>
                     <Route path='/Profile/:userId?'
                         render={() => {
                             return <Suspense fallback={<div>Loading...</div>} > {/* Suspense for Lazy Loading Lesson 94 */}
