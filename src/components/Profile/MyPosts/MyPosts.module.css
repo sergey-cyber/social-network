@@ -1,0 +1,28 @@
+.postsBlock{
+    padding: 10px;
+}
+
+.postsControl textarea{
+    outline: none;
+    width: 50%;
+    height: 70px;
+}
+
+.postsControl button{
+    margin: 10px 0;
+    display: block;
+    outline: none;
+    border: none;
+    padding: 10px;
+    transition: .5s;
+    color: #fff;
+    background-color: black;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.postsControl button:hover{
+    background-color: #fff;
+    color: #000;
+    font-weight: bolder;
+}

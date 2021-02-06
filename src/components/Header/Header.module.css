@@ -1,0 +1,34 @@
+
+
+.header{
+    grid-area: h;
+    background-color: green;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .header img{
+    margin-left: 30px;
+    width: 50px;
+    height: auto;
+  }
+
+  .loginBlock{  
+    margin-right: 30px;
+  }
+
+  .loginBlock a{
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .userPhoto{
+    display: flex;
+    align-items: center;
+  }
+
+  .userPhoto span{
+    margin-left: 10px;
+    color: #fff;
+  }

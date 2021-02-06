@@ -1,0 +1,51 @@
+
+.discriptionBlock{
+  margin: 10px;;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.profileAva{
+  width: 35%;
+  position: relative;
+}
+
+.preloader{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.profileAva img{
+  width: 100%;
+  display: block;
+}
+
+.profileInfo{
+  width: 50%;
+  margin-left: 30px;
+}
+
+.profileContacts{
+  display: flex;
+  flex-direction: column;
+}
+
+.instaLink{
+  width:8%;
+  margin: 20px 5px;
+}
+
+.instaLink img{
+  width: 100%;
+}
+
+.profileContacts p{
+  display: block;
+}
+
+.contact{
+  padding-left: 10px;
+}

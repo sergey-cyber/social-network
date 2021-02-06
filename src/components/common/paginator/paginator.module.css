@@ -1,0 +1,8 @@
+.selectedPage{
+    font-weight: bolder;
+}
+
+.pageSelectControl span {
+    margin: 3px;
+    cursor: pointer;
+}

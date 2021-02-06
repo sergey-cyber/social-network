@@ -1,0 +1,12 @@
+
+
+.friendsItem{
+  width: 25%;
+  text-align: center;
+  padding: 5px;
+}
+
+.friendsItem img{
+  width: 100%;
+  border-radius: 50%;
+}
