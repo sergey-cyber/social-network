@@ -11,7 +11,7 @@ const maxLength30 = maxLengthCreator(30);
 
 const LoginForm = ({handleSubmit, error}) => {
     return (        
-        <form onSubmit = {handleSubmit}>  
+        <form onSubmit = {handleSubmit} className={style.loginForm} >  
             {createField('email', 'email', Input, [requireField, maxLength30])}
             {createField('password', 'password', Input, [requireField, maxLength30], {type: "password"})}
             {createField(null, 'rememberMe', 'input', null, {type: "checkbox"}, 'Remember me')}

@@ -1,7 +1,9 @@
 .nav{
   grid-area: n;
-  background-color: rgb(255, 208, 0);
+  background-color: #C7CFDA;
   padding: 10px;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 25px;  
 }
 
 .item{
@@ -9,11 +11,12 @@
 }
 
 .item a.active{
-  color: red;
+  color: #C65277;
 }
 
 .item a{
   text-decoration: none;
+  color: #487288;
 }
 
 .friendsTitle{

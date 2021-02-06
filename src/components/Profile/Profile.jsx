@@ -15,7 +15,8 @@ const Profile = (props) => {
                          avatarIsFetching={props.avatarIsFetching} 
                          status={props.status}
                          updateStatus={props.updateStatus} 
-                         saveAvaPhoto={props.saveAvaPhoto} />
+                         saveAvaPhoto={props.saveAvaPhoto}
+                         saveProfileData={props.saveProfileData} />
             <MyPostsContainer />
         </div>
     );

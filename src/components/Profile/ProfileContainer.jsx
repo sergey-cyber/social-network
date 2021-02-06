@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Profile from './Profile';
-import { getUserProfile, getUserStatus, updateUserStatus, saveAvaPhoto} from '../../Redux/Profile-reducer';
+import { getUserProfile, getUserStatus, updateUserStatus, saveAvaPhoto, saveProfileData} from '../../Redux/Profile-reducer';
 import { Redirect, withRouter } from 'react-router-dom';
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import { compose } from 'redux';
@@ -35,7 +35,8 @@ class ProfileContainer extends React.Component {
             <Profile {...this.props} status = {this.props.status} 
                 updateStatus={this.props.updateUserStatus} 
                 isOwner={!this.props.match.params.userId} 
-                saveAvaPhoto ={this.props.saveAvaPhoto} /> //Если в урле нет id тогда можно отобразить инпут для смены аватарки
+                saveAvaPhoto ={this.props.saveAvaPhoto} 
+                saveProfileData={this.props.saveProfileData} /> //Если в урле нет id тогда можно отобразить инпут для смены аватарки
                 //! переводит isOwner в false если значения нет и в true если есть
         );
     }   
@@ -52,7 +53,7 @@ let mapStateToProps = (state) => {
 }
 
 export default compose(
-    connect(mapStateToProps, { getUserProfile, getUserStatus, updateUserStatus, saveAvaPhoto }),
+    connect(mapStateToProps, { getUserProfile, getUserStatus, updateUserStatus, saveAvaPhoto, saveProfileData }),
     withRouter, //через withRouter считываются данные из урла(60 урок) и приходят в пропсах
     //withAuthRedirect    //Redirect урок 69 запрещает попадать на страницу если не залогинен
 )(ProfileContainer);

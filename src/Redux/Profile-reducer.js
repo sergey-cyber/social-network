@@ -1,3 +1,4 @@
+import { stopSubmit } from "redux-form";
 import { profileAPI, usersAPI } from "../api/api";
 
 const ADD_POST = 'it-social/profilePage/ADD-POST';
@@ -57,9 +58,9 @@ const savePhotoSucess = (photos) => ({type: SET_PHOTO_SUCCES, photos});
 
 export const getUserProfile = (usId) => {
     return async (dispatch) => {
-        let userId = usId;
+        const userId = usId;
         dispatch(setAvatarIsFetching(true)); 
-        let response = await usersAPI.getProfile(userId)
+        const response = await usersAPI.getProfile(userId)
         dispatch(setAvatarIsFetching(false));
         dispatch(setUserProfile(response.data));
     }
@@ -67,14 +68,14 @@ export const getUserProfile = (usId) => {
 
 export const getUserStatus = (userId) => {
     return async (dispatch) => { 
-        let response = await profileAPI.getStatus(userId)
+        const response = await profileAPI.getStatus(userId)
         dispatch(setStatus(response.data));
     }
 }
 
 export const updateUserStatus = (status) => {
     return async (dispatch) => { 
-        let response = await profileAPI.updateStatus(status)
+        const response = await profileAPI.updateStatus(status)
         if(response.data.resultCode === 0) {
             dispatch(setStatus(status));
         }
@@ -83,9 +84,22 @@ export const updateUserStatus = (status) => {
 
 export const saveAvaPhoto = (file) => {
     return async (dispatch) => { 
-        let response = await profileAPI.savePhoto(file)
+        const response = await profileAPI.savePhoto(file)
         if(response.data.resultCode === 0) {
             dispatch(savePhotoSucess(response.data.data.photos));
+        }
+    }
+}
+
+export const saveProfileData = (profile) => {
+    return async (dispatch, getState) => { 
+        const userId = getState().auth.userId;
+        const response = await profileAPI.saveProfileData(profile)
+        if(response.data.resultCode === 0) {
+            dispatch((getUserProfile(userId))); 
+        } else {
+            dispatch(stopSubmit('profileEditForm', {_error: response.data.messages[0]})); //Lesson 79
+            return Promise.reject(response.data.messages[0]); //Если приходит ошибка с сервака, то форму не закрываем и показываем ошибку Lesson97
         }
     }
 }

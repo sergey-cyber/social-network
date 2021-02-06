@@ -21,13 +21,10 @@ const Navbar = (props) => {
             <div className = {s.item}>
                 <NavLink to='#'>News</NavLink>
             </div>
-            <div className = {s.item}>
-                <a href='#'>News</a>
-            </div>
-            <h1 className={s.friendsTitle}>Friends</h1>
+            {/* <h1 className={s.friendsTitle}>Friends</h1>
             <div className={s.friends}>
-                {/*{friend}*/}
-            </div>
+                <Friends />
+            </div> */}
         </nav>
     );
 }

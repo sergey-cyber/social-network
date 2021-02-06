@@ -2,7 +2,7 @@
 
 .header{
     grid-area: h;
-    background-color: green;
+    background-color: #4A6E84;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -11,11 +11,17 @@
   .header img{
     margin-left: 30px;
     width: 50px;
+    border-radius: 50%;
     height: auto;
   }
 
   .loginBlock{  
     margin-right: 30px;
+  }
+
+  .loginBlock a{
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 1px;
   }
 
   .loginBlock a{
@@ -28,7 +34,12 @@
     align-items: center;
   }
 
-  .userPhoto span{
+  .userPhoto button{
     margin-left: 10px;
     color: #fff;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 1px;
   }

@@ -4,7 +4,7 @@ import Navbar from './components/Navbar/Navbar';
 import './components/Header/Header.module.css';
 import './components/Navbar/Navbar.module.css';
 import './components/Profile/Profile.module.css';
-import {Route, withRouter} from 'react-router-dom';
+import {Redirect, Route, Switch, withRouter} from 'react-router-dom';
 import UsersContainer from "./components/Users/UsersContainer";
 import HeaderContainer from './components/Header/HeaderContainer';
 import Login from './components/login/login';
@@ -30,6 +30,10 @@ class App extends React.Component {
                 <HeaderContainer />
                 <Navbar />
                 <div className='app-wraper-content  '>
+                <Switch>    {/*Пробегается по всем роутам и если находит совпадение не ищет дальше Lesson 99*/} 
+                    <Route exact path='/'   /* exact - если путь совпадает точь в точь */
+                        render={() => <Redirect to='/Profile'/>} >
+                    </Route>
                     <Route path='/Profile/:userId?'
                         render={() => {
                             return <Suspense fallback={<div>Loading...</div>} > {/* Suspense for Lazy Loading Lesson 94 */}
@@ -45,7 +49,10 @@ class App extends React.Component {
                     <Route path='/users'
                         render={() => <UsersContainer />}/>
                     <Route path='/login'
-                        render={() => <Login />}/>       
+                        render={() => <Login />}/>  
+                    <Route path='*' /* Если вбит урл на который нет роута */
+                        render={() => <div>404 NOT FOUND</div>}/> 
+                </Switch>         
                 </div>
             </div>
         );
